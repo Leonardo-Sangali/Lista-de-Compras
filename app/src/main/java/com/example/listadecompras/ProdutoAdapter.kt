@@ -31,17 +31,18 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
 
         txt_qtd.text = item?.quantidade.toString()
         txt_produto.text = item?.nome
-        txt_valor.text = item?.valor.toString()
 
-        if (item?.foto != null) {
-            img_produto.setImageBitmap(item.foto)
-        }
-        return v
-
-        //obtendo a instância do objeto de formatação
+        //obtendo a instancia do objeto de formatação
         val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
-//formatando a variável no formato moeda
+
+        //formatando a variável no formato moeda
         txt_valor.text = f.format(item?.valor)
 
+        if (item?.foto != null){
+            img_produto.setImageBitmap(item.foto)
+        }
+
+        return v
     }
+
 }
